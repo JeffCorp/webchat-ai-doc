@@ -1,6 +1,22 @@
+import nextra from "nextra";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  experimental: {
+    appDir: true,
+    mdxRs: true,
+  },
+  images: {
+    domains: ["github.com", "lh3.googleusercontent.com"],
+  },
 };
 
-export default nextConfig;
+const withNextra = nextra({
+  theme: "nextra-theme-docs",
+  themeConfig: "./theme.config.jsx",
+});
+
+export default withNextra(nextConfig);
+
+// export default withMDX(nextConfig);
